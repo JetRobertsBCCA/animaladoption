@@ -44,9 +44,18 @@ const AddAnimalForm = () => {
       <h2>Add Animal</h2>
       <form onSubmit={handleSubmit}>
         <input name="name" placeholder="Name" value={animal.name} onChange={handleChange} required />
-        <input name="type" placeholder="Type" value={animal.type} onChange={handleChange} required />
+        <select name="type" value={animal.type} onChange={handleChange} required>
+          <option value="" disabled>Type</option>
+          <option value="Dog">Dog</option>
+          <option value="Cat">Cat</option>
+          <option value="Other">Other</option>
+        </select>
         <input name="age" placeholder="Age" value={animal.age} onChange={handleChange} required />
-        <input name="sex" placeholder="Sex" value={animal.sex} onChange={handleChange} required />
+        <select name="sex" value={animal.sex} onChange={handleChange} required>
+          <option value="" disabled>Sex</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
         <textarea name="description" placeholder="Description" value={animal.description} onChange={handleChange} required />
         <input name="email" type="email" placeholder="Your Email" value={animal.email} onChange={handleChange} required />
         <input name="imgUrl" placeholder="Image URL" value={animal.imgUrl} onChange={handleChange} required />
