@@ -1,0 +1,68 @@
+/* animallistings.css */
+
+/* Container for the animal listings */
+.listings-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Individual card styling */
+.card {
+    background-color: #fff; /* Card background color */
+    border: 1px solid #ddd; /* Card border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin: 15px; /* Space around cards */
+    overflow: hidden; /* To contain floated children */
+    transition: transform 0.3s; /* Animation effect on hover */
+    width: 300px; /* Fixed width for cards */
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Card image styling */
+.card img {
+    width: 100%; /* Make image fill the card */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Card content styling */
+.card-content {
+    padding: 15px; /* Space inside the card */
+}
+
+/* Card title styling */
+.card-title {
+    font-size: 1.5em; /* Title font size */
+    margin: 0; /* No margin */
+    color: #333; /* Title color */
+}
+
+/* Additional info styling */
+.card-info {
+    font-size: 1em; /* Info font size */
+    color: #666; /* Info color */
+    margin: 5px 0; /* Vertical spacing */
+}
+
+/* Button styling */
+.card-button {
+    background-color: #007BFF; /* Button background color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 1em; /* Button font size */
+    padding: 10px 15px; /* Padding for button */
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+/* Button hover effect */
+.card-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
