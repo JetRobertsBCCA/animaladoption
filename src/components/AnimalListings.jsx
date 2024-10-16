@@ -4,6 +4,9 @@ import './styles/AnimalListings.css';
 const AnimalListings = () => {
   const [animals, setAnimals] = useState([]);
 
+  const updateAnimal = async (animal) => {
+    console.log(animal)
+  }
 
   const fetchAnimals = async () => {
     try {
@@ -21,8 +24,6 @@ const AnimalListings = () => {
   useEffect(() => {
     fetchAnimals();
   }, []);
-
-
 
   return (
     <div>
@@ -43,6 +44,7 @@ const AnimalListings = () => {
             <p>Description: {animal.data_json.description}</p>
             <p>Email: {animal.data_json.email}</p>
             <p>Adoption Status: {animal.data_json.isAdopted}</p>
+            <button onClick={updateAnimal()}>Adopt Me!</button>
           </div>
         ))
       )}

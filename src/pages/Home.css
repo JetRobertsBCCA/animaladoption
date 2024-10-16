@@ -1,0 +1,196 @@
+/* Home.css */
+
+/* General Styles */
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Color Variables */
+:root {
+    --primary-color: #ff6f61;
+    --secondary-color: #f7cac9;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* Paragraphs */
+p {
+    text-align: justify;
+    margin: 0 20px;
+    font-size: 1.1rem;
+}
+
+/* Button Styles */
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #d75c54;
+}
+
+/* Layout Styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+}
+
+/* Image Styles */
+img {
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--secondary-color);
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+}
+/* Button Container */
+.button-container {
+    display: flex; /* Use flexbox to align buttons */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 15px; /* Space between buttons */
+    margin: 20px 0; /* Space above and below the button container */
+}
+
+/* Button Styles */
+.button {
+    background-color: #ff6f61; /* Use your primary color */
+    color: white; /* White text for contrast */
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded edges for a softer look */
+    padding: 12px 24px; /* Add padding */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Smooth transitions */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    font-weight: bold; /* Make text bold */
+}
+
+/* Button Hover Effects */
+.button:hover {
+    background-color: #d75c54; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+/* Additional Button Specific Styles (if needed) */
+.add-animal {
+    background-color: #6ab04c; /* Green for Add Animal */
+}
+
+.add-animal:hover {
+    background-color: #5aaf45; /* Darker green on hover */
+}
+
+.view-listings {
+    background-color: #2980b9; /* Blue for View Listings */
+}
+
+.view-listings:hover {
+    background-color: #1a6693; /* Darker blue on hover */
+}
+
+.delete-animal {
+    background-color: #e74c3c; /* Red for Delete */
+}
+
+.delete-animal:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+/* Body Background */
+body {
+    background-image: url('/public/Background.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Button Styles */
+.button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+/* Button Hover Effects */
+.button:hover {
+    background-color: #d75c54;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Additional Button Specific Styles */
+.add-animal {
+    background-color: #6ab04c;
+}
+
+.add-animal:hover {
+    background-color: #5aaf45;
+}
+
+.view-listings {
+    background-color: #2980b9;
+}
+
+.view-listings:hover {
+    background-color: #1a6693;
+}
+
+.delete-animal {
+    background-color: #e74c3c;
+}
+
+.delete-animal:hover {
+    background-color: #c0392b;
+}

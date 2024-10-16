@@ -4,6 +4,7 @@ import AddAnimalForm from './components/AddAnimalForm';
 import AnimalListings from './components/AnimalListings';
 import DeleteAllRecords from './components/DeleteAllRecords';
 import Home from './pages/Home';
+import './App.css'
 
 function App() {
   return (
