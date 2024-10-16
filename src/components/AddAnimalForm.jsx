@@ -41,26 +41,95 @@ const AddAnimalForm = () => {
   };
 
   return (
-    <div>
-      <h2>Add Animal</h2>
+    <div className="add-animal-form">
+      <h2 className="form-title">Add Animal</h2>
       <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Name" value={animal.name} onChange={handleChange} required />
-        <select name="type" value={animal.type} onChange={handleChange} required>
-          <option value="" disabled>Type</option>
-          <option value="Dog">Dog</option>
-          <option value="Cat">Cat</option>
-          <option value="Other">Other</option>
-        </select>
-        <input name="age" placeholder="Age" value={animal.age} onChange={handleChange} required />
-        <select name="sex" value={animal.sex} onChange={handleChange} required>
-          <option value="" disabled>Sex</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
-        <textarea name="description" placeholder="Description" value={animal.description} onChange={handleChange} required />
-        <input name="email" type="email" placeholder="Your Email" value={animal.email} onChange={handleChange} required />
-        <input name="imgUrl" placeholder="Image URL" value={animal.imgUrl} onChange={handleChange} required />
-        <button type="submit">Add Animal</button>
+        <div className="form-group">
+          <input
+            name="name"
+            placeholder="Name"
+            value={animal.name}
+            onChange={handleChange}
+            required
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <select
+            name="type"
+            value={animal.type}
+            onChange={handleChange}
+            required
+            className="form-input"
+          >
+            <option value="" disabled>Type</option>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <input
+            name="age"
+            placeholder="Age"
+            value={animal.age}
+            onChange={handleChange}
+            required
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <select
+            name="sex"
+            value={animal.sex}
+            onChange={handleChange}
+            required
+            className="form-input"
+          >
+            <option value="" disabled>Sex</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <textarea
+            name="description"
+            placeholder="Description"
+            value={animal.description}
+            onChange={handleChange}
+            required
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <input
+            name="email"
+            type="email"
+            placeholder="Your Email"
+            value={animal.email}
+            onChange={handleChange}
+            required
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <input
+            name="imgUrl"
+            placeholder="Image URL"
+            value={animal.imgUrl}
+            onChange={handleChange}
+            required
+            className="form-input"
+          />
+        </div>
+
+        <button type="submit" className="form-button">Add Animal</button>
       </form>
     </div>
   );

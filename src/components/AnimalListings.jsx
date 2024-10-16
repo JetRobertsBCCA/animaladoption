@@ -36,7 +36,9 @@ const AnimalListings = () => {
               <p>No image available</p>
             )}
             <div className="card-content">
-              <h3 className="card-title">{animal.data_json.name} ({animal.data_json.type || animal.data_json.breed})</h3>
+              <h3 className="card-title">
+                {animal.data_json.name} ({animal.data_json.type || animal.data_json.breed})
+              </h3>
               <p className="card-info">Age: {animal.data_json.age}</p>
               <p className="card-info">Sex: {animal.data_json.sex}</p>
               <p className="card-info">Description: {animal.data_json.description}</p>
@@ -50,3 +52,4 @@ const AnimalListings = () => {
 };
 
 export default AnimalListings;
+
