@@ -39,7 +39,7 @@ const AnimalListings = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           id: animalId,
-          team: 1, // Replace with your team ID
+          team: 1, 
         }),
       });
 
