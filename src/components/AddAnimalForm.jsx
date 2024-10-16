@@ -9,12 +9,14 @@ const AddAnimalForm = () => {
     description: '',
     email: '',
     imgUrl: '',
+    isAdopted: '',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setAnimal({ ...animal, [name]: value });
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,3 +68,4 @@ const AddAnimalForm = () => {
 };
 
 export default AddAnimalForm;
+

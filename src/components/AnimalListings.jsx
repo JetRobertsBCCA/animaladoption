@@ -4,6 +4,7 @@ import './styles/AnimalListings.css';
 const AnimalListings = () => {
   const [animals, setAnimals] = useState([]);
 
+
   const fetchAnimals = async () => {
     try {
       const response = await fetch('https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/all?teamId=1');
@@ -17,10 +18,11 @@ const AnimalListings = () => {
       console.error('Error fetching animals:', error);
     }
   };
-
   useEffect(() => {
     fetchAnimals();
   }, []);
+
+
 
   return (
     <div>
@@ -40,6 +42,7 @@ const AnimalListings = () => {
             <p>Sex: {animal.data_json.sex}</p>
             <p>Description: {animal.data_json.description}</p>
             <p>Email: {animal.data_json.email}</p>
+            <p>Adoption Status: {animal.data_json.isAdopted}</p>
           </div>
         ))
       )}
