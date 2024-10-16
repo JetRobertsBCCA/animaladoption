@@ -23,7 +23,7 @@ const Home = () => {
         <Link to="/admin-delete">
           <div className="card delete-animal-card">
             <i className="fas fa-trash-alt"></i> {/* Example icon */}
-            <h4>Delete Animal</h4>
+            <h4>Delete All Listings</h4>
           </div>
         </Link>
       </div>
