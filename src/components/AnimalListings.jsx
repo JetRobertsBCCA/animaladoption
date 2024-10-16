@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './styles/AnimalListings.css';
+import './styles/AnimalListings.css'; // Ensure this path matches your actual file location
 
 const AnimalListings = () => {
   const [animals, setAnimals] = useState([]);
@@ -23,23 +23,25 @@ const AnimalListings = () => {
   }, []);
 
   return (
-    <div>
+    <div className="listings-container">
       <h2>Animal Listings</h2>
       {animals.length === 0 ? (
         <p>No animals available for adoption.</p>
       ) : (
         animals.map((animal) => (
-          <div key={animal.id}>
-            <h3>{animal.data_json.name} ({animal.data_json.type || animal.data_json.breed})</h3>
+          <div key={animal.id} className="card">
             {animal.data_json.imgUrl ? (
               <img src={animal.data_json.imgUrl} alt={animal.data_json.name} />
             ) : (
               <p>No image available</p>
             )}
-            <p>Age: {animal.data_json.age}</p>
-            <p>Sex: {animal.data_json.sex}</p>
-            <p>Description: {animal.data_json.description}</p>
-            <p>Email: {animal.data_json.email}</p>
+            <div className="card-content">
+              <h3 className="card-title">{animal.data_json.name} ({animal.data_json.type || animal.data_json.breed})</h3>
+              <p className="card-info">Age: {animal.data_json.age}</p>
+              <p className="card-info">Sex: {animal.data_json.sex}</p>
+              <p className="card-info">Description: {animal.data_json.description}</p>
+              <p className="card-info">Email: {animal.data_json.email}</p>
+            </div>
           </div>
         ))
       )}
