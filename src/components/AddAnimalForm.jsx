@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles/AddAnimalForm.css';
 
 const AddAnimalForm = () => {
   const [animal, setAnimal] = useState({
