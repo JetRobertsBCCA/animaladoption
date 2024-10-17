@@ -4,6 +4,8 @@ import UpdateAnimalButton from "./UpdateAnimalButton"; // Import the UpdateAnima
 
 const AnimalListings = () => {
   const [animals, setAnimals] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   // Fetch the animal data from the server
   const fetchAnimals = async () => {
