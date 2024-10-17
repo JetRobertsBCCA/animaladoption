@@ -12,7 +12,7 @@ const DeleteAnimalButton = ({ animalId, onDelete }) => {
       try {
         const deleteUrl = `https://unit-4-project-app-24d5eea30b23.herokuapp.com/delete/data`;
         
-        // Making POST request to delete the specific animal
+      
         const response = await fetch(deleteUrl, {
           method: 'POST',
           headers: {
@@ -23,7 +23,7 @@ const DeleteAnimalButton = ({ animalId, onDelete }) => {
 
         if (response.ok) {
           alert('Animal listing deleted successfully!');
-          onDelete(animalId); // Callback to remove the animal from the list in the parent component
+          onDelete(animalId); // Callback to remove the animal from the list n parent componet 
         } else {
           alert('Error deleting animal listing. Please try again.');
         }

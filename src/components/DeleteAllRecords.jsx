@@ -6,7 +6,7 @@ const DeleteAllRecords = () => {
     const password = prompt('Please enter the admin password to delete all records:');
     if (password !== 'ADMIN123') {
       alert('Incorrect password. Access denied.');
-      return; // Stop the function if the password is incorrect
+      return; 
     }
 
     // Confirm deletion
@@ -15,12 +15,12 @@ const DeleteAllRecords = () => {
     }
 
     try {
-      // New path for deletion
+      
       const deleteUrl = 'https://unit-4-project-app-24d5eea30b23.herokuapp.com/nuke/all?teamId=1';
 
-      // Make the GET request for deletion using fetch
+      
       const response = await fetch(deleteUrl, {
-        method: 'GET', // Use GET as requested
+        method: 'GET', 
       });
 
       if (response.ok) {
