@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import UpdateAnimalForm from './UpdateAnimalForm'
-import './styles/AnimalListings.css';
+import './styles/AnimalListings.css'; 
 
 const AnimalListings = () => {
   const [animals, setAnimals] = useState([]);
-
-  const updateAnimal = async (animal) => {
-    console.log(animal)
-  }
 
   const fetchAnimals = async () => {
     try {
@@ -22,6 +16,7 @@ const AnimalListings = () => {
       console.error('Error fetching animals:', error);
     }
   };
+
   useEffect(() => {
     fetchAnimals();
   }, []);
@@ -50,7 +45,7 @@ const AnimalListings = () => {
 
       if (response.ok) {
         alert('Animal deleted successfully!');
-        setAnimals(animals.filter(animal => animal.id !== animalId)); 
+        setAnimals(animals.filter(animal => animal.id !== animalId)); // Removes the animal
       } else {
         alert('Error deleting animal. Please try again.');
       }
@@ -61,14 +56,13 @@ const AnimalListings = () => {
   };
 
   return (
-    <div>
+    <div className="listings-container">
       <h2>Animal Listings</h2>
       {animals.length === 0 ? (
         <p>No animals available for adoption.</p>
       ) : (
         animals.map((animal) => (
-          <div key={animal.id}>
-            <h3>{animal.data_json.name} ({animal.data_json.type || animal.data_json.breed})</h3>
+          <div key={animal.id} className="card">
             {animal.data_json.imgUrl ? (
               <img src={animal.data_json.imgUrl} alt={animal.data_json.name} />
             ) : (
@@ -85,7 +79,7 @@ const AnimalListings = () => {
               <button onClick={() => handleDelete(animal.id)} className="card-button">
                 Delete
               </button>
-
+              
                 {/* you need this button to show the update animal form and pass it animal  */}
                 {/* {Then you need to submit} */}
                 <button>
