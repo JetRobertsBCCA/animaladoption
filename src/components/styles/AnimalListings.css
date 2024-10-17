@@ -1,94 +1,92 @@
-
-
 /* Container for the animal listings */
 .listings-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-  }
-  
-  /* Individual card styling */
-  .card {
-    background-color: #fff; /* Card background color */
-    border: 1px solid #ddd; /* Card border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    margin: 15px; /* Space around cards */
-    overflow: hidden; /* To contain floated children */
-    transition: transform 0.3s; /* Animation effect on hover */
-    width: 300px; /* Fixed width for cards */
-    position: relative;
-    background-image: url('https://i.pinimg.com/originals/21/72/0f/21720fb76e1e4d56bdfc06f788505f91.png'); /* Paw print background */
-    background-size: 50px; /* Size of the paw print */
-    background-position: top right; /* Position of the paw print */
-    background-repeat: no-repeat;
-    padding: 20px;
-  }
-  
-  /* Card hover effect */
-  .card:hover {
-    transform: scale(1.05); /* Scale up on hover */
-    background-color: #f5f5f5; /* Change background on hover */
-  }
-  
-  /* Card image styling */
-  .card img {
-    width: 100%; /* Make image fill the card */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px;
-  }
-  
-  /* Card content styling */
-  .card-content {
-    padding: 15px; /* Space inside the card */
-  }
-  
-  /* Card title styling */
-  .card-title {
-    font-size: 1.5em; /* Title font size */
-    margin: 0; /* No margin */
-    color: #333; /* Title color */
-  }
-  
-  /* Additional info styling */
-  .card-info {
-    font-size: 1em; /* Info font size */
-    color: #666; /* Info color */
-    margin: 5px 0; /* Vertical spacing */
-  }
-  
-  /* Paw print icon in the bottom-left corner */
-  .card::after {
-    content: '🐾'; /* Paw print emoji */
-    font-size: 1.5rem; /* Adjust size */
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: #007BFF; /* Color of paw print */
-  }
-  
-  /* Paw print decoration in the container */
-  .listings-container::before {
-    content: '🐾'; /* Paw print emoji */
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 3rem;
-    color: #007BFF; /* Color of paw print */
-    opacity: 0.3;
-    z-index: -1; /* Send the paw print to the background */
-  }
-  
-  .listings-container::after {
-    content: '🐾'; /* Paw print emoji */
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    font-size: 3rem;
-    color: #007BFF; /* Color of paw print */
-    opacity: 0.3;
-    z-index: -1; /* Send the paw print to the background */
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Individual card styling */
+.card {
+  background-color: #fff; /* Card background color */
+  border: 1px solid #ddd; /* Card border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  margin: 15px; /* Space around cards */
+  transition: transform 0.3s; /* Animation effect on hover */
+  width: 300px; /* Fixed width for cards */
+  position: relative;
+  background-image: url('https://i.pinimg.com/originals/21/72/0f/21720fb76e1e4d56bdfc06f788505f91.png'); /* Paw print background */
+  background-size: 50px; /* Size of the paw print */
+  background-position: top right; /* Position of the paw print */
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+
+/* Grey out card when adopted */
+.card.adopted {
+  background-color: rgba(128, 128, 128, 0.3); /* Grey background */
+  filter: grayscale(100%);
+  position: relative;
+}
+
+/* Adopted overlay styling */
+.adopted-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent overlay */
+  font-size: 2em;
+  color: red;
+  font-weight: bold;
+  z-index: 2;
+  pointer-events: none; /* Prevent clicks through the overlay */
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: scale(1.05); /* Scale up on hover */
+  background-color: #f5f5f5; /* Change background on hover */
+}
+
+/* Card image styling */
+.card img {
+  width: 100%; /* Make image fill the card */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+}
+
+/* Card content styling */
+.card-content {
+  padding: 15px; /* Space inside the card */
+}
+
+/* Card title styling */
+.card-title {
+  font-size: 1.5em; /* Title font size */
+  margin: 0; /* No margin */
+  color: #333; /* Title color */
+}
+
+/* Additional info styling */
+.card-info {
+  font-size: 1em; /* Info font size */
+  color: #666; /* Info color */
+  margin: 5px 0; /* Vertical spacing */
+}
+
+/* Paw print icon in the bottom-left corner */
+.card::after {
+  content: '🐾'; /* Paw print emoji */
+  font-size: 1.5rem; /* Adjust size */
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #007BFF; /* Color of paw print */
+}

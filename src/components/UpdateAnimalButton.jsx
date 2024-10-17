@@ -8,31 +8,38 @@ const UpdateAnimalButton = ({animalId, animal}) => {
       return;
     }
 
-    if (window.confirm('Update this listing?')) {
+    if (window.confirm('Mark this animal as adopted?')) {
       try {
-        const updateUrl = `https://unit-4-project-app-24d5eea30b23.herokuapp.com/update/data/teamId=1&recordId=${animalId}`;
+        const updateUrl = `https://unit-4-project-app-24d5eea30b23.herokuapp.com/update/data?teamId=1&recordId=${animalId}`;
+
+        // Update isAdopted to true in the animal data
+        const updatedAnimal = {
+          ...animal.data_json,
+          isAdopted: true, // Set isAdopted to true
+        };
 
         const response = await fetch(updateUrl, {
-          method: 'PUT',
+          method: 'POST', // Changed to POST method
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ body: animal.data_json }),
+          body: JSON.stringify({ body: updatedAnimal }),
         });
 
         if (response.ok) {
-          alert('Updated Successfully');
+          alert('Animal marked as adopted successfully.');
+          window.location.reload(); // Reload the page after successful update
         } else {
           alert('Error updating listing. Please try again.');
         }
       } catch (error) {
         console.error('Error updating:', error);
-        alert('An error occured.')
+        alert('An error occurred while updating.');
       }
     }
   };
 
-  return <button onClick={handleUpdate} className="card-button">Update Animal</button>;
+  return <button onClick={handleUpdate} className="card-button">Mark as Adopted</button>;
 }
 
 export default UpdateAnimalButton;
