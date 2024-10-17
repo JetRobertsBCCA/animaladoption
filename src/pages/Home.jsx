@@ -1,11 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../pages/Home.css';
-import CreateTestListingButton from '../components/CreateTestListingButton';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../pages/Home.css";
+import CreateTestListingButton from "../components/CreateTestListingButton";
 
 const Home = () => {
   return (
-    
     <div className="container">
       <CreateTestListingButton />
       <h1>Welcome to Paw Partners</h1>

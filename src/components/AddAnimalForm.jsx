@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import './styles/AddAnimalForm.css';
+import React, { useState } from "react";
+import "./styles/AddAnimalForm.css";
 
 const AddAnimalForm = () => {
   const [animal, setAnimal] = useState({
-    name: '',
-    type: '',
-    age: '',
-    sex: '',
-    description: '',
-    email: '',
-    imgUrl: '',
-    isAdopted: '',
+    name: "",
+    type: "",
+    age: "",
+    sex: "",
+    description: "",
+    email: "",
+    imgUrl: "",
+    isAdopted: "",
   });
 
   const handleChange = (e) => {
@@ -18,27 +18,37 @@ const AddAnimalForm = () => {
     setAnimal({ ...animal, [name]: value });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://unit-4-project-app-24d5eea30b23.herokuapp.com/post/data', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          team: 1,
-          body: animal,
-        }),
-      });
+      const response = await fetch(
+        "https://unit-4-project-app-24d5eea30b23.herokuapp.com/post/data",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            team: 1,
+            body: animal,
+          }),
+        }
+      );
 
-      if (!response.ok) throw new Error('Failed to add animal');
-      alert('Animal added successfully!');
-      setAnimal({ name: '', type: '', age: '', sex: '', description: '', email: '', imgUrl: '' }); // Resets the form
+      if (!response.ok) throw new Error("Failed to add animal");
+      alert("Animal added successfully!");
+      setAnimal({
+        name: "",
+        type: "",
+        age: "",
+        sex: "",
+        description: "",
+        email: "",
+        imgUrl: "",
+      }); // Resets the form
     } catch (error) {
       console.error(error);
-      alert('Error adding animal: ' + error.message);
+      alert("Error adding animal: " + error.message);
     }
   };
 
@@ -65,7 +75,9 @@ const AddAnimalForm = () => {
             required
             className="form-input"
           >
-            <option value="" disabled>Type</option>
+            <option value="" disabled>
+              Type
+            </option>
             <option value="Dog">Dog</option>
             <option value="Cat">Cat</option>
             <option value="Other">Other</option>
@@ -91,7 +103,9 @@ const AddAnimalForm = () => {
             required
             className="form-input"
           >
-            <option value="" disabled>Sex</option>
+            <option value="" disabled>
+              Sex
+            </option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
@@ -131,12 +145,12 @@ const AddAnimalForm = () => {
           />
         </div>
 
-        <button type="submit" className="form-button">Add Animal</button>
-        
+        <button type="submit" className="form-button">
+          Add Animal
+        </button>
       </form>
     </div>
   );
 };
 
 export default AddAnimalForm;
-

@@ -1,48 +1,49 @@
-import React, { useState } from 'react';
-import './styles/AddAnimalForm.css';
+import React, { useState } from "react";
+import "./styles/AddAnimalForm.css";
 
-const AddAnimalForm = ({animal}) => {
-    console.log(animal)
-//   const [animal, setAnimal] = useState(animal);
+const AddAnimalForm = ({ animal }) => {
+  console.log(animal);
+  //   const [animal, setAnimal] = useState(animal);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     // setAnimal({ ...animal, [name]: value });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const password = prompt(
+      "Please enter the admin password to update this listing:"
+    );
+    if (password !== "ADMIN123") {
+      alert("Incorrect password. Access denied.");
+      return;
+    }
 
-  const handleSubmit = async (e) => {   
-        e.preventDefault();
-        const password = prompt('Please enter the admin password to update this listing:');
-        if (password !== 'ADMIN123') {
-            alert('Incorrect password. Access denied.');
-            return;
+    if (window.confirm("Update this listing?")) {
+      try {
+        // ${animal.id} to be used for record id like ${value}
+        const updateUrl = `https://unit-4-project-app-24d5eea30b23.herokuapp.com/update/data/teamId=1&recordId=1`;
+
+        const response = await fetch(updateUrl, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ body: animal.data_json }),
+        });
+
+        if (response.ok) {
+          alert("Updated Successfully");
+        } else {
+          alert("Error updating listing. Please try again.");
         }
-
-        if (window.confirm('Update this listing?')) {
-            try {
-            // ${animal.id} to be used for record id like ${value}
-            const updateUrl = `https://unit-4-project-app-24d5eea30b23.herokuapp.com/update/data/teamId=1&recordId=1`;
-
-            const response = await fetch(updateUrl, {
-                method: 'PUT',
-                headers: {
-                'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ body: animal.data_json }),
-            });
-
-            if (response.ok) {
-                alert('Updated Successfully');
-            } else {
-                alert('Error updating listing. Please try again.');
-            }
-            } catch (error) {
-            console.error('Error updating:', error);
-            alert('An error occured.')
-            }
-        }
-    };
+      } catch (error) {
+        console.error("Error updating:", error);
+        alert("An error occured.");
+      }
+    }
+  };
 
   return (
     <div className="add-animal-form">
@@ -67,7 +68,9 @@ const AddAnimalForm = ({animal}) => {
             required
             className="form-input"
           >
-            <option value="" disabled>Type</option>
+            <option value="" disabled>
+              Type
+            </option>
             <option value="Dog">Dog</option>
             <option value="Cat">Cat</option>
             <option value="Other">Other</option>
@@ -93,7 +96,9 @@ const AddAnimalForm = ({animal}) => {
             required
             className="form-input"
           >
-            <option value="" disabled>Sex</option>
+            <option value="" disabled>
+              Sex
+            </option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
@@ -133,11 +138,12 @@ const AddAnimalForm = ({animal}) => {
           />
         </div>
 
-        <button type="submit" className="form-button">Update Animal</button>
+        <button type="submit" className="form-button">
+          Update Animal
+        </button>
       </form>
     </div>
   );
 };
 
 export default AddAnimalForm;
-
