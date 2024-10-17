@@ -1,60 +1,53 @@
 import React, { useState } from "react";
 import "./styles/AddAnimalForm.css";
 
-const AddAnimalForm = () => {
-  const [animal, setAnimal] = useState({
-    name: "",
-    type: "",
-    age: "",
-    sex: "",
-    description: "",
-    email: "",
-    imgUrl: "",
-    isAdopted: "",
-  });
+const AddAnimalForm = ({ animal }) => {
+  console.log(animal);
+  //   const [animal, setAnimal] = useState(animal);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setAnimal({ ...animal, [name]: value });
+    // setAnimal({ ...animal, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(
-        "https://unit-4-project-app-24d5eea30b23.herokuapp.com/post/data",
-        {
-          method: "POST",
+    const password = prompt(
+      "Please enter the admin password to update this listing:"
+    );
+    if (password !== "ADMIN123") {
+      alert("Incorrect password. Access denied.");
+      return;
+    }
+
+    if (window.confirm("Update this listing?")) {
+      try {
+        // ${animal.id} to be used for record id like ${value}
+        const updateUrl = `https://unit-4-project-app-24d5eea30b23.herokuapp.com/update/data/teamId=1&recordId=1`;
+
+        const response = await fetch(updateUrl, {
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            team: 1,
-            body: animal,
-          }),
-        }
-      );
+          body: JSON.stringify({ body: animal.data_json }),
+        });
 
-      if (!response.ok) throw new Error("Failed to add animal");
-      alert("Animal added successfully!");
-      setAnimal({
-        name: "",
-        type: "",
-        age: "",
-        sex: "",
-        description: "",
-        email: "",
-        imgUrl: "",
-      }); // Resets the form
-    } catch (error) {
-      console.error(error);
-      alert("Error adding animal: " + error.message);
+        if (response.ok) {
+          alert("Updated Successfully");
+        } else {
+          alert("Error updating listing. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error updating:", error);
+        alert("An error occured.");
+      }
     }
   };
 
   return (
     <div className="add-animal-form">
-      <h2 className="form-title">Add Animal</h2>
+      <h2 className="form-title">Update Animal</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
@@ -146,7 +139,7 @@ const AddAnimalForm = () => {
         </div>
 
         <button type="submit" className="form-button">
-          Add Animal
+          Update Animal
         </button>
       </form>
     </div>

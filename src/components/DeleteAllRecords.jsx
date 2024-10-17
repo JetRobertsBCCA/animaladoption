@@ -1,38 +1,41 @@
-// src/components/DeleteAllRecords.jsx
-
-import React from 'react';
-import axios from 'axios';
+import React from "react";
 
 const DeleteAllRecords = () => {
   const handleDeleteAll = async () => {
-    if (!window.confirm('Are you sure you want to delete all records? This action cannot be undone.')) {
+    // Prompt for admin password
+    const password = prompt(
+      "Please enter the admin password to delete all records:"
+    );
+    if (password !== "ADMIN123") {
+      alert("Incorrect password. Access denied.");
+      return;
+    }
+
+    // Confirm deletion
+    if (
+      !window.confirm(
+        "Are you sure you want to delete all records? This action cannot be undone."
+      )
+    ) {
       return;
     }
 
     try {
-      // Step 1: Fetch all records from the API
-      const response = await axios.get('https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/all?teamId=1');
-      const records = response.data.response; 
+      const deleteUrl =
+        "https://unit-4-project-app-24d5eea30b23.herokuapp.com/nuke/all?teamId=1";
 
-      if (Array.isArray(records) && records.length > 0) {
-        // Step 2: Delete each record by id
-        await Promise.all(
-          records.map(async (record) => {
-            await axios.delete('https://unit-4-project-app-24d5eea30b23.herokuapp.com/delete/data', {
-              data: {
-                id: record.id, 
-                team: 1, 
-              },
-            });
-          })
-        );
-        alert('All records deleted successfully!');
+      const response = await fetch(deleteUrl, {
+        method: "GET",
+      });
+
+      if (response.ok) {
+        alert("All records deleted successfully!");
       } else {
-        alert('No records found to delete.');
+        alert("Error deleting records. Please try again.");
       }
     } catch (error) {
-      console.error('Error deleting records:', error);
-      alert('Error deleting records. Check the console for details.');
+      console.error("Error deleting records:", error);
+      alert("Error deleting records. Check the console for details.");
     }
   };
 

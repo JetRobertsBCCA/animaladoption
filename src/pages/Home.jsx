@@ -1,13 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../pages/Home.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../pages/Home.css";
+import CreateTestListingButton from "../components/CreateTestListingButton";
 
 const Home = () => {
   return (
-    <div className="home-container">
-      <h1 className="home-header">Welcome to Paw Partners</h1>
-      <h3 className="home-subtext">A trusted platform for pet adoption</h3>
-      <div className="button-container">
+    <div className="container">
+      <CreateTestListingButton />
+      <h1>Welcome to Paw Partners</h1>
+      <h3>A trusted platform for pet adoption</h3>
+      <div className="card-container">
         <Link to="/add-animal">
           <button className="home-button add-animal">Add Animal</button>
         </Link>
@@ -15,7 +17,10 @@ const Home = () => {
           <button className="home-button view-listings">View Animal Listings</button>
         </Link>
         <Link to="/admin-delete">
-          <button className="home-button delete-animal">Delete</button>
+          <div className="card delete-animal-card">
+            <i className="fas fa-trash-alt"></i> {/* Example icon */}
+            <h4>Delete All Listings</h4>
+          </div>
         </Link>
       </div>
       

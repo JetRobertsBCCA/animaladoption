@@ -1,5 +1,5 @@
-import React from 'react';
-import AddAnimalForm from '../components/AddAnimalForm';
+import React from "react";
+import AddAnimalForm from "../components/AddAnimalForm";
 
 function AddListingPage() {
   return (
