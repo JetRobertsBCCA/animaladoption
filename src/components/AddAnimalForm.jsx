@@ -33,7 +33,7 @@ const AddAnimalForm = () => {
 
       if (!response.ok) throw new Error('Failed to add animal');
       alert('Animal added successfully!');
-      setAnimal({ name: '', type: '', age: '', sex: '', description: '', email: '', imgUrl: '' }); // Reset form
+      setAnimal({ name: '', type: '', age: '', sex: '', description: '', email: '', imgUrl: '' }); // Resets the form
     } catch (error) {
       console.error(error);
       alert('Error adding animal: ' + error.message);

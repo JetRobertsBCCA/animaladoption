@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './styles/AnimalListings.css'; // Ensure this path matches your actual file location
+import './styles/AnimalListings.css'; 
 
 const AnimalListings = () => {
   const [animals, setAnimals] = useState([]);
@@ -11,7 +11,7 @@ const AnimalListings = () => {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
-      setAnimals(data.response || []); // Access the 'response' array
+      setAnimals(data.response || []);
     } catch (error) {
       console.error('Error fetching animals:', error);
     }
@@ -45,7 +45,7 @@ const AnimalListings = () => {
 
       if (response.ok) {
         alert('Animal deleted successfully!');
-        setAnimals(animals.filter(animal => animal.id !== animalId)); // Remove the animal from the UI
+        setAnimals(animals.filter(animal => animal.id !== animalId)); // Removes the animal
       } else {
         alert('Error deleting animal. Please try again.');
       }
