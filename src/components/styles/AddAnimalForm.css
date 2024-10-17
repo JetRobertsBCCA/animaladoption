@@ -1,99 +1,156 @@
 /* Container for the form */
-
 .add-animal-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-/* Form title styling */
-.form-title {
-    font-family: 'Alfa Slab One', serif;
-    font-size: 2rem; /* Larger font for title */
-    margin-bottom: 20px; 
-    color: #333; 
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
     text-align: center;
-}
-
-/* Individual form group styling */
-.form-group {
-    margin-bottom: 15px; /* Space between form groups */
-}
-
-/* Label styling */
-.form-label {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  /* Form title styling */
+  .form-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    color: #ff6f61;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    animation: slideIn 0.8s ease-out;
+  }
+  
+  /* Individual form group styling */
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  /* Label styling */
+  .form-label {
     font-family: 'Arial', sans-serif;
-    font-size: 1rem; 
-    margin-bottom: 5px; 
-    display: block; 
-    color: #555;
-}
-
-/* Input field styling */
-.form-input,
-.form-textarea {
-    width: 100%; 
-    padding: 10px; 
-    border-radius: 4px; 
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  /* Input field styling */
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 1rem;
-    font-family: 'Arial', sans-serif;
-    box-sizing: border-box; 
-    transition: border-color 0.3s ease; 
-}
-
-/* Focus state for inputs */
-.form-input:focus,
-.form-textarea:focus {
-    border-color: #007bff; 
+    font-family: 'Lora', serif;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+  }
+  
+  /* Focus state for inputs */
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: #ff6f61;
+    background-color: #fff;
     outline: none;
-}
-
-/* Button styling */
-.form-button {
-    background-color: #007bff; 
-    color: white; 
-    font-size: 1rem; 
-    padding: 12px 20px; 
-    border: none; 
-    border-radius: 4px; 
-    cursor: pointer; 
-    transition: background-color 0.3s ease; 
-    display: block;
-    width: 100%; 
-}
-
-
-.form-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
-
-/* Error message styling */
-.error-message {
-    color: red;
-    font-size: 0.9rem; 
-    margin-top: 5px; 
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
+    box-shadow: 0 4px 8px rgba(255, 111, 97, 0.3);
+  }
+  
+  /* Textarea specific styles */
+  .form-textarea {
+    min-height: 120px;
+    resize: vertical;
+    transition: all 0.3s ease;
+  }
+  
+  /* Button styling */
+  .form-button {
+    background: linear-gradient(45deg, #ff6f61, #ff4d38);
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    box-shadow: 0 8px 16px rgba(255, 111, 97, 0.2);
+    display: inline-block;
+    width: 100%;
+  }
+  
+  /* Hover effect for button */
+  .form-button:hover {
+    background: linear-gradient(45deg, #ff4d38, #ff6f61);
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(255, 111, 97, 0.3);
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    font-weight: 500;
+    animation: slideInError 0.6s ease-out;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
     .add-animal-form {
-        padding: 15px; /* smaller screens */
+      padding: 25px;
     }
-
+  
     .form-title {
-        font-size: 1.5rem; /* Smaller title */
+      font-size: 2rem;
     }
-
+  
     .form-input,
     .form-textarea {
-        padding: 8px; 
+      padding: 10px;
     }
-
+  
     .form-button {
-        padding: 10px; 
+      padding: 12px;
     }
-}
+  }
+  
+  /* Animation Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInError {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

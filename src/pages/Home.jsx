@@ -4,20 +4,27 @@ import '../pages/Home.css';
 
 const Home = () => {
   return (
-    <div>
+    <div className="container">
       <h1>Welcome to Paw Partners</h1>
       <h3>A trusted platform for pet adoption</h3>
-      <div className="button-container">
+      <div className="card-container">
         <Link to="/add-animal">
-          <button className="button add-animal">Add Animal</button>
+          <div className="card add-animal-card">
+            <i className="fas fa-plus-circle"></i> {/* Example icon */}
+            <h4>Add Animal</h4>
+          </div>
         </Link>
-
         <Link to="/animal-listings">
-          <button className="button view-listings">View Animal Listings</button>
+          <div className="card view-listings-card">
+            <i className="fas fa-list"></i> {/* Example icon */}
+            <h4>View Animal Listings</h4>
+          </div>
         </Link>
-
         <Link to="/admin-delete">
-          <button className="button delete-animal">Delete</button>
+          <div className="card delete-animal-card">
+            <i className="fas fa-trash-alt"></i> {/* Example icon */}
+            <h4>Delete All Listings</h4>
+          </div>
         </Link>
       </div>
     </div>
