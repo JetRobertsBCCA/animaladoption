@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./styles/AnimalListings.css";
-import UpdateAnimalButton from "./UpdateAnimalButton"; // Import the UpdateAnimalButton component
+import UpdateAnimalButton from "./UpdateAnimalButton"; 
 
 const AnimalListings = () => {
   const [animals, setAnimals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Fetch the animal data from the server
+ 
   const fetchAnimals = async () => {
     try {
       const response = await fetch(
@@ -23,7 +23,7 @@ const AnimalListings = () => {
     }
   };
 
-  // Only fetch the data once when the component mounts
+  
   useEffect(() => {
     fetchAnimals();
   }, []);
@@ -83,9 +83,9 @@ const AnimalListings = () => {
 
       const currentAnimal = await currentAnimalResponse.json();
 
-      // Flatten the structure and ensure all fields are sent in the update request
+
       const currentAnimalData =
-        currentAnimal.data_json.body || currentAnimal.data_json; // Handle potential nesting
+        currentAnimal.data_json.body || currentAnimal.data_json; 
       const updatedAnimal = {
         id: animalId,
         team: 1,

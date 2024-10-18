@@ -11,23 +11,22 @@ const Home = () => {
       <h3>A trusted platform for pet adoption</h3>
       <div className="card-container">
         <Link to="/add-animal">
-          <button className="home-button add-animal">Add Animal</button>
+          <button className="home-button add-animal" aria-label="Add a new animal listing">
+            Add Animal
+          </button>
         </Link>
         <Link to="/animal-listings">
-          <button className="home-button view-listings">View Animal Listings</button>
+          <button className="home-button view-listings" aria-label="View all animal listings">
+            View Animal Listings
+          </button>
         </Link>
         <Link to="/admin-delete">
-          <div className="card delete-animal-card">
-            <i className="fas fa-trash-alt"></i> {/* Example icon */}
+          <div className="card delete-animal-card" aria-label="Delete all animal listings">
+            <i className="fas fa-paw"></i> {/* Paw icon */}
             <h4>Delete All Listings</h4>
           </div>
         </Link>
       </div>
-      
-      {/* Footer Section */}
-      <footer className="footer">
-        <p>&copy; 2024 Paw Partners. All rights reserved.</p>
-      </footer>
     </div>
   );
 };
