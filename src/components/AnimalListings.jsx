@@ -7,7 +7,6 @@ const AnimalListings = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
- 
   const fetchAnimals = async () => {
     try {
       const response = await fetch(
@@ -17,18 +16,16 @@ const AnimalListings = () => {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      setAnimals(data.response || []); // Set the fetched animals once
+      setAnimals(data.response || []);
     } catch (error) {
       console.error("Error fetching animals:", error);
     }
   };
 
-  
   useEffect(() => {
     fetchAnimals();
   }, []);
 
-  // Function to handle deleting an animal
   const handleDelete = async (animalId) => {
     const password = prompt(
       "Please enter the admin password to delete this listing:"
@@ -59,8 +56,7 @@ const AnimalListings = () => {
 
       if (response.ok) {
         alert("Animal deleted successfully!");
-        // After deletion, refetch the animals
-        fetchAnimals(); // Refetch the updated list of animals
+        fetchAnimals();
       } else {
         alert("Error deleting animal. Please try again.");
       }
@@ -70,10 +66,8 @@ const AnimalListings = () => {
     }
   };
 
-  // Function to handle updating the animal data (adopted status)
   const handleUpdate = async (animalId, updatedAnimalData) => {
     try {
-      // Fetch the current data of the animal before updating
       const currentAnimalResponse = await fetch(
         `https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/${animalId}?teamId=1`
       );
@@ -82,7 +76,6 @@ const AnimalListings = () => {
       }
 
       const currentAnimal = await currentAnimalResponse.json();
-
 
       const currentAnimalData =
         currentAnimal.data_json.body || currentAnimal.data_json; 
@@ -96,7 +89,7 @@ const AnimalListings = () => {
         description:
           currentAnimalData.description || updatedAnimalData.description,
         email: currentAnimalData.email || updatedAnimalData.email,
-        isAdopted: updatedAnimalData.isAdopted, // Updated status
+        isAdopted: updatedAnimalData.isAdopted,
       };
 
       const updateUrl = `https://unit-4-project-app-24d5eea30b23.herokuapp.com/update/animal`;
@@ -108,8 +101,7 @@ const AnimalListings = () => {
 
       if (response.ok) {
         alert("Animal updated successfully!");
-        // Refetch the updated list of animals after the update
-        fetchAnimals(); // Refreshes the data without reloading the whole page
+        fetchAnimals();
       } else {
         alert("Error updating animal. Please try again.");
       }
@@ -126,7 +118,7 @@ const AnimalListings = () => {
         <p>No animals available for adoption.</p>
       ) : (
         animals.map((animal) => {
-          const animalData = animal.data_json.body || animal.data_json; // Handle potential nesting of 'body'
+          const animalData = animal.data_json.body || animal.data_json;
           return (
             <div
               key={animal.id}
@@ -153,19 +145,17 @@ const AnimalListings = () => {
                 </p>
                 <p className="card-info">Email: {animalData.email}</p>
 
-                {/* Delete Button */}
                 <button
                   onClick={() => handleDelete(animal.id)}
-                  className="card-button"
+                  className="card-button delete"
                 >
                   Delete
                 </button>
 
-                {/* Mark as Adopted Button */}
                 {!animalData.isAdopted && (
                   <UpdateAnimalButton
                     animalId={animal.id}
-                    onUpdate={handleUpdate} // Pass the handler to refetch after update
+                    onUpdate={handleUpdate}
                     animal={animal}
                   />
                 )}

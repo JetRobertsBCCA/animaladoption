@@ -1,4 +1,5 @@
 import React from "react";
+import '../components/DeleteAllRecords.css';
 
 const DeleteAllRecords = () => {
   const handleDeleteAll = async () => {

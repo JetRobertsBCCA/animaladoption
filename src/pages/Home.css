@@ -95,7 +95,7 @@ h3 {
 /* Hover Effect for Buttons */
 .home-button:hover {
   background-color: #4ba19f; /* Darker teal */
-  transform: scale(1.1);
+  transform: scale(1.2);
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
@@ -165,12 +165,5 @@ h3 {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInSubtext {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
 
-@keyframes fadeInButtons {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+
