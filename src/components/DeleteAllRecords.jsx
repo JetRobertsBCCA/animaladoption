@@ -41,10 +41,25 @@ const DeleteAllRecords = () => {
   };
 
   return (
-    <div>
-      <h2>Delete All Records</h2>
-      <button onClick={handleDeleteAll}>Delete All</button>
-    </div>
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+  <h2 style={{ color: '#333', fontFamily: 'Arial, sans-serif', fontSize: '24px', marginBottom: '10px' }}>Delete All Records</h2><p>USE WITH CAUTION</p>
+  <button 
+    onClick={handleDeleteAll} 
+    style={{
+      backgroundColor: '#ff4d4d',
+      color: 'white',
+      fontSize: '16px',
+      padding: '10px 20px',
+      border: 'none',
+      borderRadius: '5px',
+      cursor: 'pointer',
+      boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)'
+    }}
+  >
+    Delete All
+  </button>
+</div>
+
   );
 };
 

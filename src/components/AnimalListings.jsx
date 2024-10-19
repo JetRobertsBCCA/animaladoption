@@ -159,6 +159,7 @@ const AnimalListings = () => {
                 <button
                   onClick={() => handleDelete(animal.id)}
                   className="card-button delete"
+                  style={{ marginRight: '10px' }}
                 >
                   Delete
                 </button>

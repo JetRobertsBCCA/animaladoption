@@ -20,12 +20,6 @@ const Home = () => {
             View Animal Listings
           </button>
         </Link>
-        <Link to="/admin-delete">
-          <div className="card delete-animal-card" aria-label="Delete all animal listings">
-            <i className="fas fa-paw"></i> {/* Paw icon */}
-            <h4>Delete All Listings</h4>
-          </div>
-        </Link>
       </div>
     </div>
   );
