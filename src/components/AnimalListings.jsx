@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./styles/AnimalListings.css";
-import UpdateAnimalButton from "./UpdateAnimalButton"; 
+import UpdateAnimalButton from "./UpdateAnimalButton";
 
 const AnimalListings = () => {
   const [animals, setAnimals] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const fetchAnimals = async () => {
     try {
@@ -78,7 +78,7 @@ const AnimalListings = () => {
       const currentAnimal = await currentAnimalResponse.json();
 
       const currentAnimalData =
-        currentAnimal.data_json.body || currentAnimal.data_json; 
+        currentAnimal.data_json.body || currentAnimal.data_json;
       const updatedAnimal = {
         id: animalId,
         team: 1,
@@ -126,7 +126,7 @@ const AnimalListings = () => {
             >
               {animalData.isAdopted && (
                 <div className="adopted-overlay">
-                  <span>ADOPTED</span>
+                  <span></span>
                 </div>
               )}
               {animalData.imgUrl ? (
@@ -143,7 +143,10 @@ const AnimalListings = () => {
                 <p className="card-info">
                   Description: {animalData.description}
                 </p>
-                <p className="card-info">Email: {animalData.email}</p>
+                <p className="card-info">
+                  Email:{" "}
+                  <a href={`mailto:${animalData.email}`}>{animalData.email}</a>
+                </p>
 
                 <button
                   onClick={() => handleDelete(animal.id)}

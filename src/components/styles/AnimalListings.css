@@ -39,10 +39,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 1.5em;
-    font-weight: bold;
     pointer-events: none;
+    background-image: url('https://raw.githubusercontent.com/JetRobertsBCCA/GOATpage/refs/heads/main/ADOPTED.png');
+    background-size: contain;  /* Ensures the image is scaled properly */
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
+    background-position: center;  /* Centers the image */
 }
 
 /* Keep the delete button clickable inside adopted cards */
