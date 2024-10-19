@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Navbar />  {/* Navbar outside Routes */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/animaladoption" element={<Home />} />
         <Route path="/add-animal" element={<AddAnimalForm />} />
         <Route path="/animal-listings" element={<AnimalListings />} />
         <Route path="/admin-delete" element={<DeleteAllRecords />} />
