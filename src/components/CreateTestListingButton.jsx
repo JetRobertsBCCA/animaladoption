@@ -13,13 +13,13 @@ const CreateTestListingButton = () => {
           body: JSON.stringify({
             team: 1,
             body: {
-              name: "Test Animal",
+              name: "Cupcake (Garlok the Eater of Worlds)",
               type: "Dog",
               age: "3",
               sex: "M",
-              description: "This is a test listing.",
+              description: "He sees all",
               email: "test@example.com",
-              imgUrl: "https://via.placeholder.com/150",
+              imgUrl: "https://goofyahhpicture.com/wp-content/uploads/2024/09/dog-goofy-ah_2.jpg",
               isAdopted: false,
             },
           }),
