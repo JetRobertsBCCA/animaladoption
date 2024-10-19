@@ -25,6 +25,7 @@
 .card.adopted {
     opacity: 0.5; /* Greyed out effect */
     pointer-events: none; /* Disable interactions for the card except the delete button */
+    position:relative;
 }
 
 /* Adopted overlay */
