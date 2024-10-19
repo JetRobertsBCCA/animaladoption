@@ -23,9 +23,21 @@
 
 /* Adopted card greyed out */
 .card.adopted {
-    opacity: 0.5; /* Greyed out effect */
     pointer-events: none; /* Disable interactions for the card except the delete button */
-    position:relative;
+    position: relative;
+}
+
+/* Add a pseudo-element for the grey overlay instead */
+.card.adopted::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Greyed out effect */
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* Adopted overlay */
@@ -35,21 +47,26 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    background-image: url('https://raw.githubusercontent.com/JetRobertsBCCA/GOATpage/refs/heads/main/ADOPTED.png');
-    background-size: contain;  /* Ensures the image is scaled properly */
-    background-repeat: no-repeat;  /* Prevents the image from repeating */
-    background-position: center;  /* Centers the image */
+    z-index: 2; /* Ensure the image appears above the overlay */
+}
+
+/* Adopted image */
+.adopted-overlay img {
+    z-index: 2; /* Higher z-index to make sure image appears above the overlay */
+    width: 300px; /* Adjust size as needed */
+    height: auto;
+    opacity: 1; /* Ensure full visibility */
 }
 
 /* Keep the delete button clickable inside adopted cards */
 .card.adopted .card-button {
     pointer-events: auto;
     opacity: 1; /* Keep the delete button fully visible */
+    z-index: 3; /* Ensure button is above both the overlay and image */
 }
 
 /* Button styling */

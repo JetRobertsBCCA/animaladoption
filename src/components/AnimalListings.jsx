@@ -126,11 +126,19 @@ const AnimalListings = () => {
             >
               {animalData.isAdopted && (
                 <div className="adopted-overlay">
-                  <span></span>
+                   <img src="https://raw.githubusercontent.com/JetRobertsBCCA/GOATpage/refs/heads/main/ADOPTED.png" alt="Adopted" />
                 </div>
               )}
               {animalData.imgUrl ? (
-                <img src={animalData.imgUrl} alt={animalData.name} />
+                <img
+                  src={animalData.imgUrl}
+                  alt={animalData.name}
+                  style={{
+                    width: "370px",
+                    height: "370px",
+                    objectFit: 'inherit',
+                  }}
+                />
               ) : (
                 <p>No image available</p>
               )}
