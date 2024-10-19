@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/animaladoption/static/css/main.7e71b838.css",
+    "main.js": "/animaladoption/static/js/main.d2a1c9b4.js",
+    "index.html": "/animaladoption/index.html",
+    "main.7e71b838.css.map": "/animaladoption/static/css/main.7e71b838.css.map",
+    "main.d2a1c9b4.js.map": "/animaladoption/static/js/main.d2a1c9b4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e71b838.css",
+    "static/js/main.d2a1c9b4.js"
+  ]
+}
