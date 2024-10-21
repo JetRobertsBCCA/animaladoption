@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/animaladoption/static/css/main.7e71b838.css",
-    "main.js": "/animaladoption/static/js/main.138a767a.js",
+    "main.js": "/animaladoption/static/js/main.7971019f.js",
     "index.html": "/animaladoption/index.html",
     "main.7e71b838.css.map": "/animaladoption/static/css/main.7e71b838.css.map",
-    "main.138a767a.js.map": "/animaladoption/static/js/main.138a767a.js.map"
+    "main.7971019f.js.map": "/animaladoption/static/js/main.7971019f.js.map"
   },
   "entrypoints": [
     "static/css/main.7e71b838.css",
-    "static/js/main.138a767a.js"
+    "static/js/main.7971019f.js"
   ]
 }
