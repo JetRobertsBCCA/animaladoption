@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.7e71b838.css",
-    "main.js": "/static/js/main.49b44840.js",
-    "index.html": "/index.html",
-    "main.7e71b838.css.map": "/static/css/main.7e71b838.css.map",
-    "main.49b44840.js.map": "/static/js/main.49b44840.js.map"
+    "main.css": "/animaladoption/static/css/main.7e71b838.css",
+    "main.js": "/animaladoption/static/js/main.49b44840.js",
+    "index.html": "/animaladoption/index.html",
+    "main.7e71b838.css.map": "/animaladoption/static/css/main.7e71b838.css.map",
+    "main.49b44840.js.map": "/animaladoption/static/js/main.49b44840.js.map"
   },
   "entrypoints": [
     "static/css/main.7e71b838.css",
