@@ -8,9 +8,14 @@
     background: linear-gradient(135deg, #a3d3a9, #e1f5c4, #d7f5f2); /* Fresh green and blue gradient */;
 }
 
+.page-heading{
+    text-align: center;
+    font-size:xx-large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
 /* Individual card styling */
 .card {
-    background-color: #fff;
+    background-color: #d3ead6;
     border: none;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);

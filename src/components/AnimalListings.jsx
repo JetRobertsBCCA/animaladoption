@@ -112,71 +112,78 @@ const AnimalListings = () => {
   };
 
   return (
-    <div className="listings-container">
-      <h2>Animal Listings</h2>
-      {animals.length === 0 ? (
-        <p>No animals available for adoption.</p>
-      ) : (
-        animals.map((animal) => {
-          const animalData = animal.data_json.body || animal.data_json;
-          return (
-            <div
-              key={animal.id}
-              className={`card ${animalData.isAdopted ? "adopted" : ""}`}
-            >
-              {animalData.isAdopted && (
-                <div className="adopted-overlay">
-                   <img src="https://raw.githubusercontent.com/JetRobertsBCCA/GOATpage/refs/heads/main/ADOPTED.png" alt="Adopted" />
-                </div>
-              )}
-              {animalData.imgUrl ? (
-                <img
-                  src={animalData.imgUrl}
-                  alt={animalData.name}
-                  style={{
-                    width: "370px",
-                    height: "370px",
-                    objectFit: 'inherit',
-                  }}
-                />
-              ) : (
-                <p>No image available</p>
-              )}
-              <div className="card-content">
-                <h3 className="card-title">
-                  {animalData.name} ({animalData.type || animalData.breed})
-                </h3>
-                <p className="card-info">Age: {animalData.age}</p>
-                <p className="card-info">Sex: {animalData.sex}</p>
-                <p className="card-info">
-                  Description: {animalData.description}
-                </p>
-                <p className="card-info">
-                  Email:{" "}
-                  <a href={`mailto:${animalData.email}`}>{animalData.email}</a>
-                </p>
-
-                <button
-                  onClick={() => handleDelete(animal.id)}
-                  className="card-button delete"
-                  style={{ marginRight: '10px' }}
-                >
-                  Delete
-                </button>
-
-                {!animalData.isAdopted && (
-                  <UpdateAnimalButton
-                    animalId={animal.id}
-                    onUpdate={handleUpdate}
-                    animal={animal}
-                  />
+    <>
+      <h2 className="page-heading">Animal Listings</h2>
+      <div className="listings-container">
+        {animals.length === 0 ? (
+          <p>No animals available for adoption.</p>
+        ) : (
+          animals.map((animal) => {
+            const animalData = animal.data_json.body || animal.data_json;
+            return (
+              <div
+                key={animal.id}
+                className={`card ${animalData.isAdopted ? "adopted" : ""}`}
+              >
+                {animalData.isAdopted && (
+                  <div className="adopted-overlay">
+                    <img
+                      src="https://raw.githubusercontent.com/JetRobertsBCCA/GOATpage/refs/heads/main/ADOPTED.png"
+                      alt="Adopted"
+                    />
+                  </div>
                 )}
+                {animalData.imgUrl ? (
+                  <img
+                    src={animalData.imgUrl}
+                    alt={animalData.name}
+                    style={{
+                      width: "370px",
+                      height: "370px",
+                      objectFit: "inherit",
+                    }}
+                  />
+                ) : (
+                  <p>No image available</p>
+                )}
+                <div className="card-content">
+                  <h3 className="card-title">
+                    {animalData.name} ({animalData.type || animalData.breed})
+                  </h3>
+                  <p className="card-info">Age: {animalData.age}</p>
+                  <p className="card-info">Sex: {animalData.sex}</p>
+                  <p className="card-info">
+                    Description: {animalData.description}
+                  </p>
+                  <p className="card-info">
+                    Email:{" "}
+                    <a href={`mailto:${animalData.email}`}>
+                      {animalData.email}
+                    </a>
+                  </p>
+
+                  <button
+                    onClick={() => handleDelete(animal.id)}
+                    className="card-button delete"
+                    style={{ marginRight: "10px" }}
+                  >
+                    Delete
+                  </button>
+
+                  {!animalData.isAdopted && (
+                    <UpdateAnimalButton
+                      animalId={animal.id}
+                      onUpdate={handleUpdate}
+                      animal={animal}
+                    />
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })
-      )}
-    </div>
+            );
+          })
+        )}
+      </div>
+    </>
   );
 };
 
